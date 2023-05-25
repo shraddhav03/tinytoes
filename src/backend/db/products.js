@@ -8,23 +8,34 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+      name: "Colorful WMN 01",
+      img: "https://live.staticflickr.com/65535/52900844018_4f5fccef4a_h.jpg",
+      price: 100,
+      details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      category: "Girl's_dress",
+      rating: 4.5,
+      gender: "women"
+  },
+  {
+  
+      _id: uuid(),
+      name: "Colorful WMN 01",
+      img: "https://live.staticflickr.com/65535/52900844018_4f5fccef4a_h.jpg",
+      price: 100,
+      details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      category: "Girl's_dress",
+      rating: 4.5,
+      gender: "women"
+    
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
-  },
-  {
-    _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    name: "Colorful WMN 01",
+    img: "https://live.staticflickr.com/65535/52900844018_4f5fccef4a_h.jpg",
+    price: 100,
+    details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    category: "Boy's_dress",
+    rating: 4.5,
+    gender: "women"
   },
 ];
