@@ -8,6 +8,7 @@ import MockAPI from './Mockman/Mockman'
 import { Login } from "./Pages/Login/Login";
 import { Home } from "./Pages/Home/Home"
 import { Header } from "./Components/Header/Header"
+import { Productlisting } from "./Pages/Product/Productlisting"
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/products" element={<Productlisting />} />
       <Route path="/mockman" element={<MockAPI/>} />
       </Routes>
       

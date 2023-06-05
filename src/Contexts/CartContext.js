@@ -1,8 +1,9 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { cartReducer } from "../Reducer/Reducer";
+import { AuthContext } from "./AuthContext";
 export const CartContext = createContext();
 
- export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
   const [cartData, dispatch] = useReducer(cartReducer, {
     cart: [],
     wishlist: [],
@@ -14,10 +15,13 @@ export const CartContext = createContext();
       price: 2000,
     },
   });
-  console.log(cartData.filter.searchQuery);
+
+  const { isLoggedIn } = useContext(AuthContext);
+
   const getCartData = async () => {
     try {
       const token = localStorage.getItem("token");
+
       const auth = {
         authorization: token,
       };
@@ -33,16 +37,16 @@ export const CartContext = createContext();
           headers: auth,
         })
       ).json();
-      if (responseCart.status === 200) {
+      if (responseCart?.cart) {
         dispatch({
-          type: "ADD_TO_CART",
-          payload: responseCart.cart,
+          type: "SET_CART",
+          payload: responseCart?.cart,
         });
       }
-      if (responseWishlist.status === 200) {
+      if (responseWishlist?.wishlist) {
         dispatch({
-          type: "ADD_TO_WISHLIST",
-          payload: responseWishlist.wishlist,
+          type: "SET_WISHLIST",
+          payload: responseWishlist?.wishlist,
         });
       }
     } catch (err) {
@@ -101,7 +105,7 @@ export const CartContext = createContext();
       });
 
       if (response.status === 200) {
-        dispatch({ type: "ADD_TO_CART", payload: userProduct });
+        dispatch({ type: "REMOVE_CART", payload: userProduct });
       }
     } catch (err) {
       console.error(err);
@@ -233,7 +237,7 @@ export const CartContext = createContext();
   };
   useEffect(() => {
     getCartData();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <CartContext.Provider

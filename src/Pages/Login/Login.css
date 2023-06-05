@@ -1,7 +1,7 @@
 .login-container {
     display: flex;
     flex-direction: column;
-    width: 360px;
+    width: 260px;
     margin: 10rem auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 1.2rem;
@@ -26,11 +26,7 @@
     border: none;
     margin-top: 0.5rem;
     font-weight: 600;
-    background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgba(14, 174, 87, 1) 0%,
-      rgba(12, 116, 117, 1) 90%
-    );
+    background: #48abcf;
     color: #fff;
     font-size: 1rem;
   }

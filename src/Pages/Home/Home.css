@@ -8,7 +8,7 @@
     margin: 0 auto;
   }
   .category {
-    margin: 8rem auto;
+    margin: 2rem auto;
     text-align: center;
     width: 90%;
   }
@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    color: #fff;
+    color: black;
     font-weight: 600;
     height: 200px;
     text-shadow: 1px 2px #666;
@@ -31,6 +31,7 @@
     margin: 1.2rem;
     border-radius: 5px;
     background-size: cover;
+    background-color: azure;
     cursor: pointer;
     text-transform: uppercase;
   }

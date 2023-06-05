@@ -1,5 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
-import { CartContext } from "./CartContext";
+import { createContext, useReducer } from "react";
 import { userReducer } from "../Reducer/Reducer";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
@@ -11,9 +10,19 @@ export const AuthProvider = ({ children }) => {
   const [userData, dispatch] = useReducer(userReducer, {
     isLoggedIn: false,
     user: {},
+    address: [
+      {
+        id: "1",
+        active: false,
+        name: "Maggie Raynor",
+        mobile: "6731682187",
+        pincode: "309321",
+        user_address: "94993 Trantow Pine",
+      },
+    ],
+    orderHistory: [],
     token: "",
   });
-  const { resetCartContext } = useContext(CartContext);
   const setLoginSuccess = (data) => {
     console.log(data);
     dispatch({ type: "LOGIN_SUCCESS", payload: data });
@@ -33,7 +42,6 @@ export const AuthProvider = ({ children }) => {
       console.log(response.status);
       if (response.status === 200) {
         const responseData = await response.json();
-        resetCartContext();
         setLoginSuccess(responseData);
         localStorage.setItem("token", responseData.encodedToken);
         toast.success(
@@ -67,7 +75,7 @@ export const AuthProvider = ({ children }) => {
       }
       if (response.status === 422) {
         toast.error(
-          "A user account already exists with the provided email address",
+          "A user account alrady exists with the provided email address",
           {
             position: "top-center",
             autoClose: 1500,
@@ -100,7 +108,6 @@ export const AuthProvider = ({ children }) => {
       console.log(response.status);
       if (response.status === 201) {
         const responseData = await response.json();
-        resetCartContext();
         localStorage.setItem("token", responseData.encodedToken);
         navigate("/login");
         toast.success("User created. Please login to continue", {
@@ -142,10 +149,67 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("token");
     }
   };
-  
+  const addAddressHandler = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: "ADD_ADDRESS",
+      payload: {
+        id: Math.floor(Math.random() * 100),
+        name: e.target.elements.addressname.value,
+        active: false,
+        mobile: e.target.elements.mobileno.value,
+        pincode: e.target.elements.pincode.value,
+        user_address: e.target.elements.address.value,
+        user: userData.user,
+      },
+    });
+  };
 
-   
-  console.log(userData.orderHistory);
+  const updateAddressHandler = (e, addressId) => {
+    e.preventDefault();
+    dispatch({
+      type: "UPDATE_ADDRESS",
+      payload: {
+        id: addressId,
+        name: e.target.elements.editaddressname.value,
+        active: false,
+        mobile: e.target.elements.editmobileno.value,
+        pincode: e.target.elements.editpincode.value,
+        user_address: e.target.elements.editaddress.value,
+      },
+    });
+  };
+  const selectAddressHandler = (addId) => {
+    dispatch({ type: "SELECT_ADDRESS", payload: addId });
+  };
+
+  const removeAddressHandler = (addId) => {
+    dispatch({ type: "REMOVE_ADDRESS", payload: addId });
+  };
+
+  const getAddressData = (addressId) => {
+    return userData.address.find(({ id }) => id === addressId);
+  };
+  const orderHistoryHandler = (
+    payment_id,
+    amount,
+    date,
+    address,
+    orderItems
+  ) => {
+    dispatch({
+      type: "ADD_ORDER",
+      payload: {
+        orderId: Math.floor(Math.random() * 10000),
+        paymentId: payment_id,
+        totalAmount: amount,
+        orderDate: date,
+        deliveryAddress: address,
+        cart: orderItems,
+      },
+    });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -154,11 +218,19 @@ export const AuthProvider = ({ children }) => {
         authenticateUser,
         logoutHandler,
         signUpHandler,
+        addAddressHandler,
+        getAddressData,
+        selectAddressHandler,
+        removeAddressHandler,
+        orderHistoryHandler,
+        updateAddressHandler,
+        address: userData.address,
         user: userData.user,
+        orderHistory: userData.orderHistory,
+        isLoggedIn: userData.isLoggedIn,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
-
