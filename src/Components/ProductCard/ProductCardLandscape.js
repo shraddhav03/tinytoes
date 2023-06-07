@@ -57,7 +57,7 @@ export const ProductCardLandscape = ({ product }) => {
         <h3 className="product-detail-landscape-name">{title}</h3>
         <p className="product-detail-landscape-price">
           {discounted_price}
-          <span>{price}</span>
+          <span>{price * qty}</span>
         </p>
         <span className="product-detail-landscape-discount">
           {calculateDiscountPercentage(price, discounted_price)}% 0ff
