@@ -60,9 +60,6 @@ return (
           </Link>
           <Link to="/login">
             <button
-            //   style={{
-            //     display: checkLogin() ? "none" : "",
-            //   }}
               className="btn-header-login"
             >
               Login
@@ -76,10 +73,6 @@ return (
           >
             <AiFillHeart className="link-wishlist-a" />
             <span
-            //   style={{
-            //     display:
-            //       getWishlistCount() === 0 || !checkLogin() ? "none" : "",
-            //   }}
               className="badge"
               value={getWishlistCount()}
             ></span>
@@ -87,19 +80,17 @@ return (
           <NavLink style={getActiveCart} to="/cart" className="link-cart">
             <AiOutlineShoppingCart />
             <span
-            //   style={{
-            //     display: getCartCount() === 0 || !checkLogin() ? "none" : "",
-            //   }}
+            
               className="badge"
               value={getCartCount()}
             ></span>
           </NavLink>
           <button
-            //  style={{ display: checkLogin() ? "" : "none" }}
+            
             className="btn-header-logout"
             onClick={() => navigate("/profile")}
           > 
-             {/* <AiOutlineLogout className="btn-header-logout-icon" /> */}
+             
             <CgProfile className="btn-header-logout-icon" />
            </button> 
         </div>

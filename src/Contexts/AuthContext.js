@@ -227,7 +227,7 @@ export const AuthProvider = ({ children }) => {
         address: userData.address,
         user: userData.user,
         orderHistory: userData.orderHistory,
-        isLoggedIn: userData.isLoggedIn,
+        // isLoggedIn: userData.isLoggedIn,
       }}
     >
       {children}
