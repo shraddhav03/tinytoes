@@ -1,0 +1,73 @@
+.checkout-address-header {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .checkout-address-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .btn-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .checkout-address-ul li {
+    padding: 1rem;
+    border: 2px solid rgb(16, 116, 16);
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .checkout-address-ul li input {
+    cursor: pointer;
+  }
+  .checkout-address-ul li label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .checkout-add-address {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: orchid;
+  }
+  .btn-remove-address {
+    height: fit-content;
+    padding: 0.5rem;
+    margin-top: 0.4rem;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: orchid;
+  }
+  .btn-edit-address {
+    height: fit-content;
+    padding: 0.5rem;
+    margin-top: 0.4rem;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: orchid;
+  }
+  .empty-address {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #999;
+    margin: 3rem 0;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .checkout-address-ul li {
+      overflow-y: scroll;
+    }
+  }

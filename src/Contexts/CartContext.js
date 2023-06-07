@@ -16,7 +16,7 @@ export const CartProvider = ({ children }) => {
     },
   });
 
-  const { isLoggedIn } = useContext(AuthContext);
+  // const { isLoggedIn } = useContext(AuthContext);
 
   const getCartData = async () => {
     try {
@@ -235,9 +235,13 @@ export const CartProvider = ({ children }) => {
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART", payload: [] });
   };
+  // useEffect(() => {
+  //   getCartData();
+  // }, [isLoggedIn]);
   useEffect(() => {
     getCartData();
-  }, [isLoggedIn]);
+  },[]);
+
 
   return (
     <CartContext.Provider

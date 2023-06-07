@@ -1,17 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Productlisting.css";
 import { Filter } from "../../Components/Filters/Filter";
 import { ProductCard } from "../../Components/ProductCard/ProductCard";
 import { AiFillFilter } from "react-icons/ai";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { CartContext } from "../../Contexts/CartContext";
-
-
-export const Productlisting = () =>{
+import { TailSpin } from "react-loader-spinner";
+import Drawer from "@mui/material/Drawer";
+import Backdrop from "@mui/material/Backdrop";
+export const Productlisting = () => {
   const { products } = useContext(ProductContext);
   const { filter } = useContext(CartContext);
 
   const [showFilter, setShowFilter] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   const sortOrder = (order) => {
     if (order === "LTH")
@@ -23,8 +25,8 @@ export const Productlisting = () =>{
     const { category, userRating, sortby, searchQuery, price } = filter;
     let filteredCategory = products;
     if (category.length !== 0) {
-      filteredCategory = products.filter(({ categoryName }) =>
-        category.includes(categoryName)
+      filteredCategory = products.filter(({ category_name }) =>
+        category.includes(category_name)
       );
     }
     let filteredRating = filteredCategory;
@@ -42,31 +44,66 @@ export const Productlisting = () =>{
       filteredSorted = filteredPrice.sort(sortOrder(sortby));
     }
 
-    let filteredSearch = filteredSorted.filter(({ title }) =>
-      title.toLowerCase().includes(searchQuery.toLowerCase().trim())
+    let filteredSearch = filteredSorted.filter(
+      ({ title, description }) =>
+        title.toLowerCase().includes(searchQuery.toLowerCase().trim()) ||
+        description.toLowerCase().includes(searchQuery.toLowerCase().trim())
     );
     return filteredSearch;
   };
 
   const displayProduct = applyFilter();
+  useEffect(() => {
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 1000);
+  }, []);
 
-    return(
-        <>
-        <aside><Filter /></aside>
-     
+  return (
+    <>
+      <aside>
+        <Filter />
+      </aside>
+      <Drawer
+        anchor={"bottom"}
+        open={showFilter}
+        onClose={() => setShowFilter(!showFilter)}
+        className="show-filter"
+      >
+        <Filter />
+      </Drawer>
+
+      {showLoader ? (
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={true}
+        >
+          <TailSpin
+            height="80"
+            width="100%"
+            color="#4fa94d"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{ margin: "8rem auto" }}
+            wrapperClass=""
+            visible={true}
+          />
+        </Backdrop>
+      ) : (
         <section className="listing">
           <h3 className="listing-heading">
             Showing All products
             <span className="product-count">
               ( Showing {displayProduct.length} products )
             </span>
-            <button
-              className="filter-mobile-view-btn"
-              onClick={() => setShowFilter(!showFilter)}
-            >
-              <AiFillFilter />
-            </button>
           </h3>
+          <button
+            className="filter-mobile-view-btn"
+            onClick={() => setShowFilter(!showFilter)}
+          >
+            <AiFillFilter />
+          </button>
           {displayProduct.length === 0 ? (
             <p className="empty-productlist">No products to display</p>
           ) : (
@@ -79,7 +116,7 @@ export const Productlisting = () =>{
             </ul>
           )}
         </section>
-        </>
-    )
-    
-}
+      )}
+    </>
+  );
+};

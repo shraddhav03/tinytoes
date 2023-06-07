@@ -1,0 +1,62 @@
+.profile-container {
+    margin: 6rem auto;
+    width: 40%;
+  }
+  .profile-container h2 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .profile-details {
+    display: flex;
+    text-transform: uppercase;
+    flex-direction: column;
+    margin-top: 1rem;
+    align-items: center;
+    border: 1px solid #aaa;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    gap: 1rem;
+  }
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile-btn {
+    padding: 0.5rem;
+    border: none;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-left: 1rem;
+    background-image: radial-gradient(
+      circle 860px at 11.8% 33.5%,
+      rgba(240, 30, 92, 1) 0%,
+      rgba(244, 49, 74, 1) 30.5%,
+      rgba(249, 75, 37, 1) 56.1%,
+      rgba(250, 88, 19, 1) 75.6%,
+      rgba(253, 102, 2, 1) 100.2%
+    );
+  }
+  .btn-order {
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(14, 174, 87, 1) 0%,
+      rgba(12, 116, 117, 1) 90%
+    );
+  }
+  .profile-details b {
+    color: #222;
+  }
+  .profile-address {
+    margin-top: 1rem;
+  }
+  .profile-details p {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
+  @media screen and (max-width: 792px) {
+    .profile-container {
+      width: 95%;
+    }
+  }

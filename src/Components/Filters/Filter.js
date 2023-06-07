@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "./Filter.css";
 import { CartContext } from "../../Contexts/CartContext";
-// import Slider from "@mui/material/Slider";
+import Slider from "@mui/material/Slider";
 export const Filter = () => {
   const {
     addFilterCategory,
@@ -20,6 +20,15 @@ export const Filter = () => {
           <button onClick={(e) => clearFilter(e)}>Clear</button>
         </header>
         <h3>Price</h3>
+        <Slider
+          size="medium"
+          value={range}
+          aria-label="Small"
+          valueLabelDisplay="auto"
+          min={0}
+          onChange={(e) => addFilterRange(e)}
+          max={2000}
+        />
         <datalist className="filter-datalist" id="range">
           <option value="0">0</option>
           <option value="1000">1000</option>
@@ -29,32 +38,35 @@ export const Filter = () => {
         <label>
           <input
             type="checkbox"
-            value="Boy's"
+            // value="Men"
+            value="Clothing"
             name="category"
             onChange={(e) => addFilterCategory(e.target.value)}
-            checked={filter.category.includes("Boy's")}
+            checked={filter.category.includes("Clothing")}
           />
-          Boy's
+          Clothing
         </label>
         <label>
           <input
             type="checkbox"
-            value="Girl's"
+            // value="Women"
+            value="Toys"
             name="category"
             onChange={(e) => addFilterCategory(e.target.value)}
-            checked={filter.category.includes("Girl's")}
+            checked={filter.category.includes("Toys")}
           />
-          Girl's
+          Toys
         </label>
         <label>
           <input
             type="checkbox"
-            value="Infants"
+            // value="Kid"
+            value="Stationary"
             name="category"
             onChange={(e) => addFilterCategory(e.target.value)}
-            checked={filter.category.includes("Infants")}
+            checked={filter.category.includes("Stationary")}
           />
-          Infants
+          Stationary
         </label>
         <h3>Rating</h3>
         <label>

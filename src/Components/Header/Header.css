@@ -3,7 +3,7 @@ nav {
     top: 0;
     width: 100%;
     display: flex;
-    background-color: aquamarine;
+    background-color: orchid;
     padding: 10px;
     justify-content: space-around;
     z-index: 999;
@@ -15,8 +15,8 @@ nav {
   .header-name-a {
     text-decoration: none;
     letter-spacing: 1px;
-    background: #48abcf;
-    /* background: linear-gradient(to left, #48abcf 0%, #1591cf 100%); */
+    background: orangered;
+   
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -35,11 +35,6 @@ nav {
     top: -1.2rem;
     padding: 0.3rem 0.5rem;
     right: 5px;
-    /* background-image: radial-gradient(
-      circle 325px at 19.2% 64.8%,
-      rgba(254, 62, 101, 1) 9.7%,
-      rgba(166, 24, 146, 1) 91.3%
-    ); */
     border-radius: 50%;
     color: #fff;
   }
@@ -51,7 +46,7 @@ nav {
     padding: 5px;
     border: none;
     border-radius: 5px;
-    width: 200px;
+    width: 300px;
     font-size: 1rem;
     outline: none;
   }
@@ -68,12 +63,7 @@ nav {
     margin: 0 5px;
     padding: 7px 20px;
     border: none;
-    /* background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgba(179, 196, 85, 0.43) 0%,
-      rgb(117, 101, 11) 90%
-    ); */
-    background-color: #48abcf;
+    background-color: orangered;
     border-radius: 4px;
     text-transform: uppercase;
   }

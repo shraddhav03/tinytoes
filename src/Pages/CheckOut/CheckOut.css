@@ -1,0 +1,95 @@
+.checkout-container {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+    width: 90%;
+    margin: 6rem auto;
+  }
+  .address-card {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .price-card {
+    width: 40%;
+    padding: 0.9rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  }
+  .add-address-form-container {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+  }
+  .add-address-form {
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+    margin: 6rem;
+    height: 80%;
+    gap: 0.7rem;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+  }
+  .add-address-form label {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  .add-address-form input {
+    padding: 0.2rem;
+    border: 1px solid #999;
+    font-size: 1rem;
+  }
+  .add-address-form textarea {
+    resize: none;
+  }
+  .add-address-form button {
+    padding: 0.3rem;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .btn-add-address {
+    background-color: orchid;
+  }
+  .stepper-checkout {
+    width: 80%;
+    margin: 6rem auto;
+  }
+  .stepper-checkout-heading {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .btn-cancel-address {
+    background-color: orchid;
+  }
+  .add-address-form h3 {
+    text-align: center;
+    color: #333;
+  }
+  @media screen and (max-width: 650px) {
+    .checkout-container {
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+    .price-card {
+      width: 80%;
+    }
+    .address-card {
+      width: 80%;
+    }
+  }
