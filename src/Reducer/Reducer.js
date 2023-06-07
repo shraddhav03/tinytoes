@@ -81,7 +81,7 @@ export const userReducer = (prevState, { type, payload }) => {
           ...prevState,
           cart: prevState.cart.map((product) =>
             product._id === payload._id
-              ? { ...product, qty: product.qty + 1 }
+              ? { ...product, qty: product.qty + 1, price: product.price + product.price }
               : product
           ),
         };
