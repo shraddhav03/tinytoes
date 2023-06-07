@@ -1,6 +1,5 @@
 import { useContext, useRef } from "react";
 import "./ProductCard.css";
-import { AiTwotoneHeart } from "react-icons/ai";
 import { BsCartFill } from "react-icons/bs";
 import { CartContext } from "../../Contexts/CartContext";
 import { AuthContext } from "../../Contexts/AuthContext";
