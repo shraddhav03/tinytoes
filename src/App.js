@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import { NotFound } from "./Pages/NotFound/NotFound";
 import { useEffect } from "react";
 import { Address } from "./Pages/User/Address";
+import { FinalCheckout} from "./Components/Price/FinalCheckout"
 
 function App() {
   const { pathname } = useLocation();
@@ -66,6 +67,11 @@ function App() {
               <CheckOut />
             </RequireAuth>
           }
+        />
+        <Route
+          path="/finalcheckout"
+          element= {<FinalCheckout />}
+          
         />
         <Route
           path="/profile"

@@ -3,7 +3,7 @@ import "./ProductCardLandscape.css";
 import { CartContext } from "../../Contexts/CartContext";
 import { toast } from "react-toastify";
 export const ProductCardLandscape = ({ product }) => {
-  const { title, image, discounted_price, price } = product;
+  const { title, image, discounted_price, price, qty } = product;
   const {
     removeFromCart,
     toggleWishlist,
@@ -56,8 +56,8 @@ export const ProductCardLandscape = ({ product }) => {
       <section className="product-detail-landscape">
         <h3 className="product-detail-landscape-name">{title}</h3>
         <p className="product-detail-landscape-price">
-          {discounted_price}
-          <span>{price * qty}</span>
+          {discounted_price * qty}
+          <span>{price*qty}</span>
         </p>
         <span className="product-detail-landscape-discount">
           {calculateDiscountPercentage(price, discounted_price)}% 0ff

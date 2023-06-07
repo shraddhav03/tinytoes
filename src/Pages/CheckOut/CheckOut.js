@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddressCard } from "../../Components/Address/AddressCard";
-// import { PriceCard } from "../../Components/Price/PriceCard;
+import { PriceCard } from "../../Components/Price/PriceCard";
 import "./CheckOut.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -47,9 +47,9 @@ export const CheckOut = () => {
             Add new Address
           </button>
         </div>
-        {/* <div className="price-card">
+        <div className="price-card">
           <PriceCard />
-        </div> */}
+        </div>
       </div>
     </>
   );

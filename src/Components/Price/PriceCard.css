@@ -33,3 +33,7 @@
   .price::before {
     content: "\20B9";
   }
+  .checkoutheading{
+    text-align: center;
+    margin-top: 6rem;
+}
