@@ -1,6 +1,6 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { cartReducer } from "../Reducer/Reducer";
-import { AuthContext } from "./AuthContext";
+
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
