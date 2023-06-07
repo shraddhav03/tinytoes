@@ -2,7 +2,6 @@ import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../Contexts/AuthContext";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 export const Login = () => {
   const timerId = useRef();
@@ -62,7 +61,6 @@ export const Login = () => {
           required={true}
         />
         <span className="show-password" onClick={() => setIsHidden(!isHidden)}>
-          {/* {isHidden ? <AiFillEyeInvisible /> : <AiFillEye />} */}
         </span>
         <button type="submit" className="login-button">
           Login

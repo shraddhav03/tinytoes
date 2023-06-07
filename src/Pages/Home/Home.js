@@ -25,7 +25,8 @@ export const Home = () => {
       <TailSpin
         height="80"
         width="100%"
-        color="#4fa94d"
+        // color="#4fa94d"
+       color="#DA70D6"
         ariaLabel="tail-spin-loading"
         radius="1"
         wrapperStyle={{ margin: "8rem auto" }}

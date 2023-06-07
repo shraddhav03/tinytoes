@@ -43,7 +43,7 @@ export const Product = () => {
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: "colored",
+        // theme: "colored",
       }
     );
   };

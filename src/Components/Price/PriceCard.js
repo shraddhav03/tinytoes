@@ -54,6 +54,7 @@ export const PriceCard = () => {
       draggable: false,
       progress: undefined,
       theme: "colored",
+      background:"orchid",
     });
   };
   const loadScript = async (url) => {

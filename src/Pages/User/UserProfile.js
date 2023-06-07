@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import "./UserProfile.css";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthContext";
-import { CartContext } from "../../Context/CartContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { CartContext } from "../../Contexts/CartContext";
 export const UserProfile = () => {
   const { user, logoutHandler } = useContext(AuthContext);
   const { resetCartContext } = useContext(CartContext);

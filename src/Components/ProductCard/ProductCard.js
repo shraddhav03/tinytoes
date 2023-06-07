@@ -81,9 +81,7 @@ export const ProductCard = ({ product }) => {
         className="btn-wishlist"
       >
       
-      </button>
-      {/* <span className="product-rating">{product.rating}/5</span> */}
-      
+      </button> 
       <section className="product-detail">
         <span className="product-name">{product.title} 
         </span>
