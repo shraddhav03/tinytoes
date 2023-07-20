@@ -29,21 +29,10 @@
     font-weight: 600;
     color: #fff;
     margin-left: 1rem;
-    background-image: radial-gradient(
-      circle 860px at 11.8% 33.5%,
-      rgba(240, 30, 92, 1) 0%,
-      rgba(244, 49, 74, 1) 30.5%,
-      rgba(249, 75, 37, 1) 56.1%,
-      rgba(250, 88, 19, 1) 75.6%,
-      rgba(253, 102, 2, 1) 100.2%
-    );
+    background-color: orchid;
   }
   .btn-order {
-    background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgba(14, 174, 87, 1) 0%,
-      rgba(12, 116, 117, 1) 90%
-    );
+   background-color: orchid;
   }
   .profile-details b {
     color: #222;
