@@ -3,7 +3,7 @@ import "./ProductCardLandscape.css";
 import { CartContext } from "../../Contexts/CartContext";
 import { toast } from "react-toastify";
 export const ProductCardLandscape = ({ product }) => {
-  const { title, image, discounted_price, price, qty } = product;
+  const { title, image, discounted_price, price } = product;
   const {
     removeFromCart,
     toggleWishlist,
@@ -30,10 +30,7 @@ export const ProductCardLandscape = ({ product }) => {
       }
     );
   };
-  const authCheckCart = (product, place) => {
-    removeFromCart(product);
-    success(product, place, "Removed");
-  };
+  
   const authCheckWishlist = (product, place) => {
     toggleWishlist(product);
     removeFromCart(product);
@@ -56,8 +53,8 @@ export const ProductCardLandscape = ({ product }) => {
       <section className="product-detail-landscape">
         <h3 className="product-detail-landscape-name">{title}</h3>
         <p className="product-detail-landscape-price">
-          {discounted_price * qty}
-          <span>{price*qty}</span>
+          {discounted_price }
+          <span>{price}</span>
         </p>
         <span className="product-detail-landscape-discount">
           {calculateDiscountPercentage(price, discounted_price)}% 0ff
@@ -82,12 +79,7 @@ export const ProductCardLandscape = ({ product }) => {
             </button>
           </span>
         </div>
-        <button
-          onClick={() => authCheckCart(product, "cart")}
-          className="product-detail-landscape-btn-remove"
-        >
-          Remove From Cart
-        </button>
+      
         <button
           onClick={() => authCheckWishlist(product, "wishlist")}
           style={{

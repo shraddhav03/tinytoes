@@ -1,18 +1,23 @@
+
 import { useContext } from "react";
 import "./PriceCard.css";
 import { CartContext } from "../../Contexts/CartContext";
 import { useLocation, useNavigate } from "react-router";
-
 
 export const PriceCard = () => {
   const {
     getTotalPrice,
     getTotalDiscount,
     cart,
+    clearCart,
   } = useContext(CartContext);
 
   const location = useLocation();
   const navigate = useNavigate();
+  const handleClearCart=()=>{
+    clearCart();
+    navigate("/finalcheckout");
+  }
 
   return (
     <>
@@ -29,7 +34,7 @@ export const PriceCard = () => {
                   <span>
                     {title}(x{qty})
                   </span>
-                  <span className="price">{price * qty}</span>
+                  <span className="price">{price*qty}</span>
                 </li>
               ))}
             </ul>
@@ -42,13 +47,13 @@ export const PriceCard = () => {
           </li>
           <li>
             <span>Delivery Charges</span>
-            <span className="price">{getTotalPrice() === 0 ? "0" : "249"}</span>
+            <span className="price">{getTotalPrice() === 0 ? "0" : "50"}</span>
           </li>
           <hr />
           <li className="total-price">
             <span>Total amount</span>
             <span className="price">
-              {getTotalPrice() === 0 ? "0" : getTotalPrice() + 249}
+              {getTotalPrice() === 0 ? "0" : getTotalPrice() + 50}
             </span>
           </li>
         </ul>
@@ -62,7 +67,8 @@ export const PriceCard = () => {
       <button
         style={{ display: location?.pathname === "/checkout" ? "" : "none" }}
         className="btn-place-order"
-        onClick={() => navigate("/finalcheckout")}
+        // onClick={() => navigate("/finalcheckout")}
+        onClick={()=>handleClearCart()}
       >
         Place Order
       </button>
