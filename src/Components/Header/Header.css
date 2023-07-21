@@ -43,10 +43,10 @@ nav {
   }
   
   .search-input {
-    padding: 2px;
+    padding: 1px;
     border: none;
     border-radius: 15px;
-    width: 300px;
+    width: 250px;
     font-size: 1rem;
     outline: none;
 
